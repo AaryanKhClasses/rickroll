@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rickroll Generator</title>
+    <style>
+        body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>This is a template</h1>
+        <p>This is a template and you can change this however you want.</p>
+        <div>
+            <label>Copy & Paste this link for a rickroll: <a id="linkCode"><span id="code"></span></a></label>
+        </div>
+    </center>
+    <script>
+        const code = document.getElementById('code')
+
+        const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz"
+        const strLength = 8
+        var randomChars = ''
+
+        for (var i = 0; i < strLength; i++) {  
+            var rnum = Math.floor(Math.random() * chars.length)
+            randomChars += chars.substring(rnum, rnum+1)
+        }
+
+        window.onload = function() {
+            linkCode.href = `http://localhost:3000/${randomChars}`
+            code.innerHTML = `http://localhost:3000/${randomChars}`
+        }
+    </script>
+</body>
+</html>
